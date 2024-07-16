@@ -1,0 +1,184 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @unique @default(cuid())
+  firstName     String?
+  lastName      String?
+  email         String        @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  address       UserAddress[]
+  orders        OrderItem[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Account {
+  userId            String
+  adminId           String @default(cuid())
+  type              String 
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model VerificationToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model PasswordResetToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model Product {
+  id               String         @id @unique @default(cuid())
+  title            String
+  oldPrice         String?
+  latestPrice      String
+  shortDescription String
+  longDescription  String
+  images           ProductImage[]
+  reviews          Review[]
+  categoryId       String
+  category         Category       @relation(fields: [categoryId], references: [id])
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+model Category {
+  id          String    @id @unique @default(cuid())
+  name        String    @unique
+  posterImage String
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model ProductImage {
+  id        String   @id @unique @default(cuid())
+  url       String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Review {
+  id                String   @id @unique @default(cuid())
+  firstName         String
+  lastName          String
+  productId         String
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  reviewTitle       String
+  reviewDescription String
+  reviewStars       Int
+  image             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model UserAddress {
+  id          String      @id @unique @default(cuid())
+  userId      String
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  addressType AddressType @default(HOME)
+  fullName    String
+  houseNo     String
+  street      String
+  landmark    String
+  city        String
+  state       String
+  pincode     String
+  phoneNo     String
+  countryCode String
+  country     String
+  orders      OrderItem[] @relation("AddressOrders")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+enum AddressType {
+  HOME
+  OFFICE
+  PUBLIC
+}
+
+model OrderItem {
+  id                   String      @id @unique @default(cuid())
+  userId               String
+  user                 User        @relation(fields: [userId], references: [id])
+  addressId            String
+  address              UserAddress @relation(fields: [addressId], references: [id], name: "AddressOrders")
+  currency             String
+  amountPaidByCustomer String
+  orderId              String
+  paymentId            String
+  totalItemCount       Int
+  items                Json
+  allOrders            AllOrders[]
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+}
+
+model AllOrders {
+  id                   String      @id @unique @default(cuid())
+  orderItemId          String      @unique
+  orderItem            OrderItem   @relation(fields: [orderItemId], references: [id])
+  userId               String
+  userName             String
+  addressId            String
+  currency             String
+  amountPaidByCustomer String
+  orderId              String
+  paymentId            String
+  totalItemCount       Int
+  items                Json
+  orderStatus          OrderStatus @default(ORDERED)
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+}
+
+enum OrderStatus {
+  ORDERED
+  DISPATCH
+  DELIVERED
+  PENDING
+}
+
+model Query {
+  id      String @id @unique @default(cuid())
+  name    String
+  email   String
+  subject String
+  message String
+}

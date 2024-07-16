@@ -1,0 +1,26 @@
+{
+  "version": "1.1.0",
+  "private": true,
+  "name": "fooder",
+  "packageManager": "npm@10.2.3",
+  "scripts": {
+    "postinstall": "cd packages/db && npx prisma generate && cd ../../",
+    "build": "npm install ./packages/db && turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@repo/ui": "*",
+    "@repo/db": "*",
+    "prettier": "^3.1.1",
+    "eslint-plugin-turbo": "latest",
+    "turbo": "latest"
+  },
+  "workspaces": [
+    "apps/*",
+  "packages/*"
+  ]
+}
