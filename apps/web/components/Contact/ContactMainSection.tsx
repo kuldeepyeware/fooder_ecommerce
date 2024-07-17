@@ -76,7 +76,7 @@ const ContactMainSection = () => {
                         <Input
                           disabled={isPending}
                           placeholder='abc'
-                          className='w-[450px]  border-[#9F9F9F]'
+                          className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                           {...field}
                         />
                       </FormControl>
@@ -97,7 +97,7 @@ const ContactMainSection = () => {
                         <Input
                           disabled={isPending}
                           placeholder='abc@example.com'
-                          className='w-[450px] border-[#9F9F9F]'
+                          className='md:w-[450px] w-[300px] border-[#9F9F9F]'
                           type='email'
                           {...field}
                         />
@@ -117,7 +117,7 @@ const ContactMainSection = () => {
                         <Input
                           disabled={isPending}
                           placeholder='Hi! i’d like to ask about'
-                          className='w-[450px] border-[#9F9F9F]'
+                          className='md:w-[450px] w-[300px] border-[#9F9F9F]'
                           {...field}
                         />
                       </FormControl>
@@ -135,7 +135,7 @@ const ContactMainSection = () => {
                       <FormControl>
                         <Textarea
                           disabled={isPending}
-                          className='w-[450px] border-[#9F9F9F]'
+                          className='md:w-[450px] w-[300px] border-[#9F9F9F]'
                           {...field}
                         />
                       </FormControl>
@@ -159,7 +159,7 @@ const ContactMainSection = () => {
             </Form>
           </div>
         </div>
-        <div className='md:w-2/4 md:pl-20   w-full flex flex-col gap-10'>
+        <div className='md:w-2/4 md:pl-20 mt-5 md:mt-0 w-full flex flex-col gap-10'>
           <div>
             <div className='text-[24px] font-medium'>Address</div>
             <div>236 5th SE Avenue, New York NY10000, United States</div>

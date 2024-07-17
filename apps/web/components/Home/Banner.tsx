@@ -1,4 +1,4 @@
-import { Button } from "@repo/ui/components";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -12,9 +12,9 @@ const Banner = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
           Ut elit tellus, luctus nec ullamcorper mattis.
         </p>
-        <Button className='w-[222px] bg-[#B88E2F] p-8 rounded-none font-bold text-white hover:bg-[#B88E2F]/90'>
+        <Link href={"/shop"} className=' w-[200px] bg-[#B88E2F]  p-5 rounded-none font-bold text-white hover:bg-[#B88E2F]/90'>
           BUY NOW
-        </Button>
+        </Link>
       </div>
     </section>
   );

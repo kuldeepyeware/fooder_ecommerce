@@ -1,7 +1,6 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
 import type { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
-import Facebook from "next-auth/providers/facebook";
 import credentials from "next-auth/providers/credentials";
 import { loginFormSchema } from "./schemas/FormSchemas";
 import { getUserByEmail } from "./data/user";
@@ -12,10 +11,6 @@ const authConfig: NextAuthConfig = {
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    }),
-    Facebook({
-      clientId: process.env.AUTH_FACEBOOK_ID,
-      clientSecret: process.env.AUTH_FACEBOOK_SECRET,
     }),
     credentials({
       async authorize(credentials) {

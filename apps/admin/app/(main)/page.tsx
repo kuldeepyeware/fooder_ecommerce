@@ -110,8 +110,8 @@ export default function Page() {
           </div>
         </header>
         <main className='flex-1 p-6'>
-          <div className='flex  justify-center items-center gap-6 flex-wrap '>
-            <Card className='w-[371px] h-[162px]'>
+          <div className='flex  md:justify-center md:items-center items-start justify-start gap-6 flex-wrap '>
+            <Card className='md:w-[371px] md:h-[162px] h-[161px] w-[264px]'>
               <CardHeader>
                 <CardTitle>Total Sales</CardTitle>
                 <CardDescription>Last 30 days</CardDescription>
@@ -122,7 +122,7 @@ export default function Page() {
                 </div>
               </CardContent>
             </Card>
-            <Card className='w-[371px] h-[162px]'>
+                <Card className='md:w-[371px] md:h-[162px] h-[161px] w-[264px]'>
               <CardHeader>
                 <CardTitle>New Users</CardTitle>
                 <CardDescription>Last 30 days</CardDescription>
@@ -133,7 +133,7 @@ export default function Page() {
                 </div>
               </CardContent>
             </Card>
-            <Card className='w-[371px] h-[162px]'>
+                <Card className='md:w-[371px] md:h-[162px] h-[161px] w-[264px]'>
               <CardHeader>
                 <CardTitle>Total Orders</CardTitle>
                 <CardDescription>Last 30 days</CardDescription>
@@ -144,7 +144,7 @@ export default function Page() {
                 </div>
               </CardContent>
             </Card>
-            <Card className='w-[371px] h-[162px]'>
+                <Card className='md:w-[371px] md:h-[162px] h-[161px] w-[264px]'>
               <CardHeader>
                 <CardTitle>Total Category</CardTitle>
               </CardHeader>
@@ -154,7 +154,7 @@ export default function Page() {
                 </div>
               </CardContent>
             </Card>
-            <Card className='w-[371px] h-[162px]'>
+                <Card className='md:w-[371px] md:h-[162px] h-[161px] w-[264px]'>
               <CardHeader>
                 <CardTitle>Total Products</CardTitle>
               </CardHeader>

@@ -62,7 +62,7 @@ const RegisterPage = () => {
                     <Input
                       disabled={isPending}
                       placeholder='John'
-                      className='w-[450px]  border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                       {...field}
                     />
                   </FormControl>
@@ -80,7 +80,7 @@ const RegisterPage = () => {
                     <Input
                       disabled={isPending}
                       placeholder='Doe'
-                      className='w-[450px]  border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                       {...field}
                     />
                   </FormControl>
@@ -99,7 +99,7 @@ const RegisterPage = () => {
                       disabled={isPending}
                       placeholder='johndoe@gmail.com'
                       type='email'
-                      className='w-[450px]  border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                       {...field}
                     />
                   </FormControl>
@@ -117,7 +117,7 @@ const RegisterPage = () => {
                     <Input
                       disabled={isPending}
                       placeholder='********'
-                      className='w-[450px] border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px] border-[#9F9F9F]'
                       type='password'
                       {...field}
                     />

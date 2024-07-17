@@ -306,7 +306,7 @@ const MobileNavContent: React.FC<CartProps> = ({ cart, setCart, session }) => {
                           <div className='font-bold text-lg text-start w-full'>
                             &#8377;{cart.total_price}
                           </div>
-                          <div>Inclusive of all taxes</div>
+                          <div>Total Price</div>
                         </div>
                         <div>
                           <Button

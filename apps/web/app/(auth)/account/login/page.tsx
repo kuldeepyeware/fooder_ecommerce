@@ -50,7 +50,7 @@ const LoginPage = () => {
     });
   };
 
-  const onClick = (provider: "google" | "twitter" | "facebook") => {
+  const onClick = (provider: "google") => {
     signIn(provider, {
       callbackUrl: DEFAULT_LOGIN_REDIRECT,
     });
@@ -78,24 +78,6 @@ const LoginPage = () => {
             <path d='M20.945 11a9 9 0 1 1 -3.284 -5.997l-2.655 2.392a5.5 5.5 0 1 0 2.119 6.605h-4.125v-3h7.945z' />
           </svg>
         </Button>
-        <Button
-          className='flex h-full bg-blue-900 hover:bg-blue-900/90 cursor-pointer p-1 rounded-lg '
-          onClick={() => onClick("facebook")}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='40'
-            height='40'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='#ffffff'
-            strokeWidth='1'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            className='icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook'>
-            <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-            <path d='M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3' />
-          </svg>
-        </Button>
       </div>
       <div className='mt-5'>
         <Form {...form}>
@@ -112,7 +94,7 @@ const LoginPage = () => {
                     <Input
                       disabled={isPending}
                       placeholder='johndoe@gmail.com'
-                      className='w-[450px]  border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                       {...field}
                     />
                   </FormControl>
@@ -130,7 +112,7 @@ const LoginPage = () => {
                     <Input
                       disabled={isPending}
                       placeholder='********'
-                      className='w-[450px] border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px] border-[#9F9F9F]'
                       type='password'
                       {...field}
                     />

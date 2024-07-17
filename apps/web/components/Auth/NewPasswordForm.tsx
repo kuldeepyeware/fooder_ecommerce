@@ -63,7 +63,7 @@ const NewPasswordForm = () => {
                       disabled={isPending}
                       placeholder='********'
                       type='password'
-                      className='w-[450px]  border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                       {...field}
                     />
                   </FormControl>

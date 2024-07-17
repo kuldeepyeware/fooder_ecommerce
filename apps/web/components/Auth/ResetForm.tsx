@@ -59,7 +59,7 @@ const ResetForm = () => {
                     <Input
                       disabled={isPending}
                       placeholder='johndoe@gmail.com'
-                      className='w-[450px]  border-[#9F9F9F]'
+                      className='md:w-[450px] w-[300px]  border-[#9F9F9F]'
                       {...field}
                     />
                   </FormControl>
